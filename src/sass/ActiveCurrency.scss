@@ -1,0 +1,16 @@
+.active-currency {
+  margin-bottom: 50px;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+
+  &__text {
+    display: flex;
+    align-items: center;
+  }
+
+  &__currency {
+    padding-left: 10px;
+    font-size: 2rem;
+    color: #e84545;
+  }
+}

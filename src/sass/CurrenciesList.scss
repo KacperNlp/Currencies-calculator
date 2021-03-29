@@ -1,0 +1,78 @@
+.table-with-currencies {
+  width: 90%;
+  max-width: 650px;
+
+  &__header {
+    margin-bottom: 30px;
+    font-weight: normal;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+
+    @media (min-width: 1024px) {
+      font-size: 2rem;
+    }
+  }
+}
+
+.currencies-table {
+  width: 100%;
+
+  & tr {
+    width: 100%;
+  }
+
+  & td,
+  & th {
+    text-align: center;
+    padding: 15px 15px;
+  }
+
+  & th {
+    font-size: 1.8rem;
+  }
+
+  & td {
+    font-size: 1.2rem;
+  }
+
+  &__header {
+    background: #000;
+  }
+
+  &__body {
+    & tr:nth-of-type(odd) {
+      background: rgb(46, 44, 44);
+    }
+  }
+
+  &__message {
+    margin: 20px 0;
+    font-size: 1.2rem;
+    color: #e84545;
+  }
+}
+
+.search {
+  margin-bottom: 20px;
+
+  &__text {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+
+  &__input {
+    padding: 10px 15px;
+    background: transparent;
+    border: 1px solid #e84545;
+    color: #efefef;
+    transition: 0.3s;
+
+    &:focus {
+      background: #e84545;
+    }
+  }
+
+  & button {
+    margin-left: 10px;
+  }
+}
