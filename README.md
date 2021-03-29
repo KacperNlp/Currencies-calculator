@@ -1,6 +1,6 @@
 # Currency calculator
 
-I had created this app for learning react. In this app user can checks currently ratio of currencies, according to the base currency (default it's USD but user can change it easily).
+I had created this app for learning react. In this app user can checks currently ratio of currencies, according to the base currency (default it's USD but user can change it easily).<br/>
 What is more user can change currencies converter, the default converter value it's 1 and thanks that user can checks how much money he can get in others currencies if he had that amount in the base currency. I also created search system, which one display only matched currencies (user may search currency by name) in table.
 
 ## Mistake/fault/errro protection
@@ -21,5 +21,7 @@ I used in this project:
 - React,
 - Sass,
 - BEM.
+
+LIVE: https://kacpernlp.github.io/Currencies-calculator/
 
 status of project: finished
