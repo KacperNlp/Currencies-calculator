@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 
 import { AppContext } from "./AppContext";
+import {ListOfCurrenciesForFrom} from "./ListOfCurrenciesForFrom";
 
 import "../sass/BaseCurrencyForm.scss";
 
@@ -13,12 +14,6 @@ const BaseCurrencyForm = () => {
   const currenciesArray = Object.keys(currencies).map((currency) => [
     String(currency),
   ]);
-
-  const listOfCurrenciesForForm = currenciesArray.map((currency) => (
-    <option value={currency[0]} key={currency[0]}>
-      {currency[0]}
-    </option>
-  ));
 
   const handleChanageCurrency = ({ target }) => {
     const { value } = target;
@@ -39,7 +34,7 @@ const BaseCurrencyForm = () => {
         value={newFormCurrency}
         onChange={handleChanageCurrency}
       >
-        {listOfCurrenciesForForm}
+        <ListOfCurrenciesForFrom currenciesArray={currenciesArray}/>
       </select>
       <input type="submit" className="button" value="Set new currency" />
     </form>

@@ -1,4 +1,7 @@
-.active-currency {
+.header-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 50px;
   font-size: 1.8rem;
   letter-spacing: 1px;
@@ -6,9 +9,10 @@
   &__text {
     display: flex;
     align-items: center;
+    margin: 5px;
   }
 
-  &__currency {
+  &__info-from-data {
     padding-left: 10px;
     font-size: 2rem;
     color: #e84545;

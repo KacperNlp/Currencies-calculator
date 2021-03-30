@@ -14,19 +14,19 @@ const CurrenciesList = () => {
     const currenciesArray =  Object.keys(currencies).map((currency) => [
         String(currency),
         parseFloat(currencies[currency]).toFixed(2)
-      ]).filter(currency => { //filter to remove didn't match currencies
-        const currencyValue = Number((currency[1] * converter).toFixed(2))
-        currency[1] = currencyValue;
-        if((searchedCurrency === '' || currency[0].includes(searchedCurrency)) && currencyValue !== 0.00){
+      ]).filter((currency) => { //filter to remove didn't match currencies
+      let [name, value] = currency;
+        const currencyValue = Number((value * converter).toFixed(2))
+        value = currencyValue;
+        if((searchedCurrency === '' || name.includes(searchedCurrency)) && currencyValue !== 0.00){
+            currency[1] = value;
             return  currency;
         }
       })
 
-    const tableRowsWithCurrencies = currenciesArray.map(currency => {
-        return  <CurrencyTableRow name={currency[0]} value={currency[1]} key={currency[0]}/>;
-    })
+    const tableRowsWithCurrencies = currenciesArray.map(([name, value]) => <CurrencyTableRow name={name} value={value} key={name}/>)
 
-    const isAnyCurrencyOnList = tableRowsWithCurrencies.length > 0 ? <CurrenciesTable tableRowsWithCurrencies={tableRowsWithCurrencies}/> : <p className="currencies-table__message">We didn't find any currenyc, sorry...</p>;
+    const isAnyCurrencyOnList = !!tableRowsWithCurrencies.length ? <CurrenciesTable tableRowsWithCurrencies={tableRowsWithCurrencies}/> : <p className="currencies-table__message">We didn't find any currency, sorry...</p>;
 
     const handleSetInputSearchingValue = ({target}) => {
         const {value} = target;
@@ -44,7 +44,7 @@ const CurrenciesList = () => {
             <div className="search">
                 <label>
                     <p className="search__text">Search currency:</p>
-                    <input type="search" className="search__input" value={searchingCurrency} onChange={handleSetInputSearchingValue}/>
+                    <input className="search__input" onChange={handleSetInputSearchingValue} type="search" value={searchingCurrency}/>
                 </label>
                 <button className="fas fa-search button" onClick={handleSubmitSearching}></button>
             </div>

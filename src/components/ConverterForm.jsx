@@ -12,17 +12,19 @@ const ConverterForm = () => {
   const handleChangeFormValue = ({ target }) => setFormValue(target.value);
   const handleSubmitFormValue = (event) => {
     event.preventDefault();
-    if (formValue >= 0) {
-      handleChangeConverter(formValue);
-      setWrongValue(false);
-      setFormValue(0);
-    } else {
-      setWrongValue(true);
+
+    if(formValue < 0.01){
+      return setWrongValue(true);
     }
+
+    handleChangeConverter(formValue);
+    setWrongValue(false);
+    setFormValue(0);
+
   };
 
   const wrongValueMessage = wrongValue ? (
-    <p className="converter-form__warning">You cannot pass negative value!</p>
+    <p className="converter-form__warning">You cannot pass negative value or equal to 0!</p>
   ) : null;
 
   return (
@@ -30,13 +32,13 @@ const ConverterForm = () => {
       <label>
         {wrongValueMessage}
         <input
-          type="number"
           className="converter-form__input"
-          value={formValue}
           onChange={handleChangeFormValue}
+          type="number"
+          value={formValue}
         />
       </label>
-      <input type="submit" className="button" value="Set new converter" />
+      <input className="button" type="submit" value="Set new value" />
     </form>
   );
 };

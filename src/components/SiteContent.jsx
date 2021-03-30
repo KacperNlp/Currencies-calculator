@@ -1,10 +1,10 @@
 import React, {useContext} from 'react';
 
-import ActiveCurrency from "./ActiveCurrency.jsx";
-import BaseCurrencyForm from "./BaseCurrencyForm.jsx";
-import ConverterForm from "./ConverterForm.jsx";
-import CurrenciesList from "./CurrenciesList.jsx";
-import ErrorWithAPI from "./ErrorWithAPI.jsx";
+import BaseCurrencyForm from "./BaseCurrencyForm";
+import ConverterForm from "./ConverterForm";
+import CurrenciesList from "./CurrenciesList";
+import ErrorWithAPI from "./ErrorWithAPI";
+import HeaderWithInfo from "./HeaderWithInfo";
 
 import {AppContext} from './AppContext';
 
@@ -18,7 +18,7 @@ const SiteContent = () => {
       <ErrorWithAPI />
     ) : (
       <main className={classForMain}>
-        <ActiveCurrency />
+        <HeaderWithInfo />
         <ConverterForm />
         <BaseCurrencyForm />
         <CurrenciesList />

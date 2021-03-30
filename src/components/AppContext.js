@@ -4,13 +4,14 @@ const API = "https://api.exchangeratesapi.io/latest?base=";
 
 const defaultContextProps = {
   baseCurrency: "USD",
-  restCurrencies: [],
   converter: 1,
   errorWithAPI: false,
+  restCurrencies: [],
 };
 
 const getCurrencies = async (baseCurrency) => {
-  return await fetch(API + baseCurrency).then((res) => res.json());
+  const response = await fetch(API + baseCurrency);
+  return response.json();
 };
 
 export const AppContext = createContext(defaultContextProps);
@@ -39,17 +40,13 @@ export const AppProvider = ({ children }) => {
       });
   };
 
-  const handleUpdateCurrencies = (newBaseCurrency) => {
+  const handleUpdateCurrencies = (newBaseCurrency) =>
     updateCurrencies(newBaseCurrency);
-  };
 
-  const handleUpdateBaseCurrency = (newBaseCurrency) => {
+  const handleUpdateBaseCurrency = (newBaseCurrency) =>
     setBaseCurrency(newBaseCurrency);
-  };
 
-  const handleChangeConverter = (value) => {
-    setConverter(value);
-  };
+  const handleChangeConverter = (value) => setConverter(value);
 
   useEffect(updateCurrencies, []);
 
