@@ -32,7 +32,8 @@ export const AppProvider = ({ children }) => {
     const getCurrenciesFromApi = getCurrencies(newBaseCurrency);
     getCurrenciesFromApi
       .then((data) => {
-        setCurrencies(data.rates);
+        if (!data.succes) setCurrencies({ USD: 1 });
+        else setCurrencies(data.rates);
         setErrorWithAPI(false);
       })
       .catch((err) => {
