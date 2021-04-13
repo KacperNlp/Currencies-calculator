@@ -22,6 +22,6 @@ I used in this project:
 - Sass,
 - BEM.
 
-LIVE: https://kacpernlp.github.io/Currencies-calculator/
+LIVE: https://kacpernlp.github.io/Currencies-calculator/ - API which one I used has changed from free to paid, so this link don't working
 
 status of project: finished
